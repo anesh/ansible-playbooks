@@ -1,0 +1,10 @@
+- name: "Run DHCP playbook"
+  hosts: localhost
+  vars_files:
+    - group_vars/dhcpdata.yml
+    - group_vars/password.yml
+  tasks:
+    - include_role:
+        name: create-ibdhcpnetwork
+    - include_role:
+        name: create-ibdhcprange

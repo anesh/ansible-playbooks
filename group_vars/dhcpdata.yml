@@ -1,0 +1,11 @@
+dhcpdata:
+  - 
+    network: 20.0.11.0/24 
+    start: 20.0.11.20 
+    end:  20.0.11.253
+    comment: created via ansible
+  -
+    network: 20.0.12.0/24
+    start: 20.0.12.20
+    end: 20.0.12.253
+    comment: created via ansible

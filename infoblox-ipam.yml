@@ -1,0 +1,7 @@
+- name: "Provision IP Address"
+  hosts: localhost
+  vars_files:
+    - group_vars/passwords.yml
+  tasks:
+    - include_role:
+        name: snow-ipam

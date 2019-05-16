@@ -1,0 +1,12 @@
+- name: "Create Host Record"
+  hosts: localhost
+  vars_files:
+    - group_vars/password.yml
+    - group_vars/rdata.yml
+    - group_vars/all.yml
+  tasks:
+    - include_role:
+        name: create-host
+    - include_role:
+        name: query-fqdn
+

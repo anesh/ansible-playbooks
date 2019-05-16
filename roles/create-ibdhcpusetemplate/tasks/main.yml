@@ -1,0 +1,13 @@
+- name: Create DHCP Network and range with template
+  ibdhcpusetemplate:
+    network: "{{ item.network }}"
+    comment: "{{ item.comment }}"
+    username: "{{un}}"
+    password: "{{pwd}}"
+    templ: "{{ item.template }}"
+  register: listofnetwork
+  with_items: "{{ dhcptempl }}"
+
+- debug:
+    msg: "{{item.meta}}"
+  with_items: "{{ listofnetwork.results }}"

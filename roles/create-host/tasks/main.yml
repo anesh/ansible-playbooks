@@ -1,0 +1,18 @@
+- name: DNS PRE check
+  dnsprecheck:
+    fqdnpar: "{{ item.fqdn }}"
+    viewpar: "{{ item.view }}"
+  register: returnmod
+  with_items: "{{ rdata }}"
+
+- name: configure an ipv4 host record
+  nios_host_record:
+    name: "{{ item.item.fqdn }}"
+    ipv4:
+      - address: "{{ item.item.ipaddr }}"
+    state: present
+    view: "{{ item.item.view }}"
+    comment: "{{ item.item.comment }}"
+    provider: "{{nios_provider}}" 
+  with_items: "{{ returnmod.results }}"
+  when: item.meta == 0

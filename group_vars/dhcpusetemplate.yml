@@ -1,0 +1,10 @@
+dhcptempl:
+  - 
+    network: 20.0.30.0/24
+    template: Subnet-24-Offset20
+    comment: created via ansible
+  -
+    network: 20.0.31.0/24
+    template: Subnet-24-Offset20
+    comment: created via ansible
+

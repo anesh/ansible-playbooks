@@ -1,0 +1,13 @@
+- name: Create DHCP Network
+  ibdhcpnetwork:
+    network: "{{ item.network }}"
+    comment: "{{ item.comment }}"
+    username: "{{un}}"
+    password: "{{pwd}}"
+  register: listofnetwork
+  with_items: "{{ dhcpdata }}"
+
+- debug:
+    msg: "{{item.meta}}"
+  with_items: "{{ listofnetwork.results }}"
+

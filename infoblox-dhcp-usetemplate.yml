@@ -1,0 +1,8 @@
+- name: "Run DHCP playbook"
+  hosts: localhost
+  vars_files:
+    - group_vars/dhcpusetemplate.yml
+    - group_vars/password.yml
+  tasks:
+    - include_role:
+        name: create-ibdhcpusetemplate

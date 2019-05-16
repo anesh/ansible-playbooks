@@ -1,0 +1,9 @@
+- name: Test that my snowinfoblox module works
+  getnextansmod:
+    req_no: "REQ0262190"
+    username: "{{un}}"
+    password: "{{pwd}}" 
+
+  register: result
+
+- debug: var=result  

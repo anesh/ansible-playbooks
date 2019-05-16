@@ -1,0 +1,13 @@
+- name: Create DHCP Range
+  ibdhcprange:
+    start: "{{ item.start }}"
+    end: "{{ item.end }}"
+    username: "{{un}}"
+    password: "{{pwd}}"
+  register: listofranges
+  with_items: "{{ dhcpdata }}"
+
+- debug:
+    msg: "{{item.meta}}"
+  with_items: "{{ listofranges.results }}"
+
